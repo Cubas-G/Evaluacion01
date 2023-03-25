@@ -1,14 +1,14 @@
 import axios from "axios";
-import { PokeAPINidorina } from "./interfaces/PokeApiNidorina";
-import { PokeAPINidoqueen, Move } from "./interfaces/PokeApiNidoqueen";
+import { PokeAPIMachoke } from "./interfaces/PokeApiMachoke";
+import { PokeAPIBlastoise, Move } from "./interfaces/PokeApiBlastoise";
 
-export class Ndorina {
+export class Mchoke{
   constructor(public readonly id: number, public name: string) {}
 
 
 
   async getMoves(): Promise<Move[]> {
-    const { data } = await axios.get<PokeAPINidorina>(
+    const { data } = await axios.get<PokeAPIMachoke>(
       " https://pokeapi.co/api/v2/pokemon/67"
     );
     console.log(data.moves[0].move.name);
@@ -23,11 +23,11 @@ export class Ndorina {
   }
 }
 
-export class Ndoqueen {
+export class Blstoise {
   constructor(public readonly id: number, public name: string) {}
 
   async getMoves(): Promise<Move[]> {
-    const { data } = await axios.get<PokeAPINidoqueen>(
+    const { data } = await axios.get<PokeAPIBlastoise>(
       "https://pokeapi.co/api/v2/pokemon/9"
     );
     console.log(data.moves[0].move.name);
@@ -42,8 +42,8 @@ export class Ndoqueen {
   }
 }
 
-export const Nidorina = new Ndorina(30, "Nidorina");
-console.log(Nidorina.getMoves());
+export const Machoke = new Mchoke(67, "Machoke");
+console.log(Machoke.getMoves());
 
-export const Nidoqueen = new Ndoqueen(31, "Nidoqueen");
-console.log(Nidoqueen.getMoves());
+export const Blastoise = new Blstoise(9, "Blastoise");
+console.log(Blastoise.getMoves());
